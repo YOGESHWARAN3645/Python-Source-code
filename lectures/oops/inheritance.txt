@@ -1,0 +1,94 @@
+Inheritance is a fundamental concept in object-oriented programming (OOP) that allows a new class (called the derived class or subclass) to inherit attributes and methods from an existing class (called the base class or superclass).
+Inheritance promotes code reuse and allows for the creation of a hierarchy of classes.
+In Python, inheritance is implemented using the following syntax:
+
+python Copy code
+class BaseClass:
+    # Base class attributes and methods
+class DerivedClass(BaseClass):
+    # Additional attributes and methods
+
+    
+Here's a breakdown of key concepts related to inheritance in Python:
+
+Base Class (Superclass):
+
+The class whose attributes and methods are inherited.
+It serves as a template or blueprint for creating new classes.
+
+python Copy code
+class Animal:
+    def __init__(self, species):
+        self.species = species
+
+    def make_sound(self):
+        print("Some generic sound")
+Derived Class (Subclass):
+
+The class that inherits attributes and methods from the base class.
+It can have additional attributes and methods or override existing ones.
+
+python Copy code
+
+class Dog(Animal):
+    def __init__(self, species, breed):
+        # Calling the constructor of the base class
+        super().__init__(species)
+        self.breed = breed
+
+    # Overriding the make_sound method
+    def make_sound(self):
+        print("Woof!")
+        
+Method Overriding:
+The process of providing a new implementation for a method in the derived class.
+It allows the derived class to customize or extend the behavior inherited from the base class.
+super() Function:
+
+The super() function is used to call a method from the base class.
+It is often used in the constructor (__init__) of the derived class to invoke the constructor of the base class.
+
+python Copy code
+class Dog(Animal):
+    def __init__(self, species, breed):
+        # Calling the constructor of the base class
+        super().__init__(species)
+        self.breed = breed
+        
+Here's an example demonstrating inheritance in Python:
+python Copy code
+
+class Animal:
+    def __init__(self, species):
+        self.species = species
+
+    def make_sound(self):
+        print("Some generic sound")
+
+class Dog(Animal):
+    def __init__(self, species, breed):
+        # Calling the constructor of the base class
+        super().__init__(species)
+        self.breed = breed
+
+    # Overriding the make_sound method
+    def make_sound(self):
+        print("Woof!")
+
+# Creating instances of the classes
+generic_animal = Animal(species="Unknown")
+my_dog = Dog(species="Canine", breed="Golden Retriever")
+
+# Using inherited methods
+generic_animal.make_sound()  # Outputs: Some generic sound
+my_dog.make_sound()  # Outputs: Woof!
+
+In this example, Dog is a derived class that inherits from the Animal base class.
+The make_sound method is overridden in the Dog class to provide a different implementation. 
+Instances of the Dog class can access both the methods of the Animal class and its own methods.
+
+
+
+
+
+
