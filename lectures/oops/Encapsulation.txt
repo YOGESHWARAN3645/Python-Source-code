@@ -1,0 +1,71 @@
+Encapsulation is one of the four fundamental principles of object-oriented programming (OOP),
+it refers to the bundling of data (attributes) and the methods (functions) that operate on the data into a single unit known as a class. 
+Encapsulation helps in hiding the internal details of an object and restricting access to its implementation. This allows for a more controlled and secure way of interacting with objects.
+
+
+In Python, encapsulation is achieved using private and protected access modifiers:
+
+Private Access Modifier (__):
+
+A variable or method name prefixed with a double underscore __ is considered private.
+Private attributes and methods are not directly accessible from outside the class.
+python Copy code
+
+class MyClass:
+    def __init__(self):
+        self.__private_variable = "I am private"
+
+    def __private_method(self):
+        print("This is a private method")
+
+Protected Access Modifier (_):
+A variable or method name prefixed with a single underscore _ is considered protected.
+Protected attributes and methods are accessible within the class and its subclasses.
+
+python Copy code
+
+class MyClass:
+    def __init__(self):
+        self._protected_variable = "I am protected"
+
+    def _protected_method(self):
+        print("This is a protected method")
+
+Encapsulation provides several benefits:
+Information Hiding: It hides the internal details of an object, exposing only what is necessary.
+Security: It prevents external code from directly manipulating or accessing internal data, reducing the risk of unintended interference.
+Modularity: Encapsulation promotes modularity by organizing code into self-contained units (classes), making it easier to understand and maintain.
+Here's an example demonstrating encapsulation in Python:
+
+python Copy code
+class Car:
+    def __init__(self, make, model):
+        self.__make = make  # Private attribute
+        self.__model = model  # Private attribute
+
+    def get_make(self):
+        return self.__make
+
+    def get_model(self):
+        return self.__model
+
+    def display_info(self):
+        print(f"Car: {self.__make} {self.__model}")
+
+# Creating an instance of the Car class
+my_car = Car(make="Toyota", model="Camry")
+
+# Accessing attributes using getter methods
+print(my_car.get_make())  # Outputs: Toyota
+print(my_car.get_model())  # Outputs: Camry
+
+# Attempting to access private attributes directly would result in an error:
+# print(my_car.__make)  # This would result in an AttributeError
+In this example, the attributes __make and __model are encapsulated within the Car class, and access to them is provided through getter methods (get_make and get_model). 
+This encapsulation helps control how external code interacts with the internal state of the Car object.
+
+
+
+
+
+
